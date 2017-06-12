@@ -1,0 +1,21 @@
+{
+  "name": "todomvc",
+  "version": "1.0.0",
+  "description": "todo app in angular 1.x",
+  "main": "app/script.js",
+  "repository": "https://github.com/siddarthvader/todoMVC.git",
+  "author": "siddharth jain <siddharthjn93@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack --config webpack.config.js --watch",
+    "server":"python -m SimpleHTTPServr"
+  },
+  "dependencies": {
+    "angular": "^1.6.4",
+    "bulma": "^0.4.2",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "webpack": "^2.6.1"
+  }
+}
