@@ -63,11 +63,89 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(4);
+module.exports = angular;
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 2 */,
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(1)
+__webpack_require__(0);
+var todoMVC = angular.module('todoMVC', []);
+
+todoMVC.controller('mainController', ['$scope', function ($scope) {
+    $scope.text = "we are up";
+    $scope.notes = [];
+    $scope.noteText = '';
+    var ctrl = this;
+
+    $scope.addNote = function (data) {
+        $scope.notes.push($scope.noteText);
+        $scope.noteText = '';
+    };
+
+    $scope.isSelected = function (index) {
+        console.log($scope.selected);
+        if ($scope.selected) {
+            return $scope.selected.indexOf(index) > -1 ? true : false;
+        }
+        else {
+            return false;
+        }
+    }
+
+    $scope.select = function (note) {
+        if (!$scope.selected) {
+            $scope.selected = [];
+            $scope.selected.push(note);
+        }
+        else {
+            var index=$scope.selected.indexOf(note);
+            if ( index== -1) {
+                $scope.selected.push(note);
+            }
+            else {
+                $scope.selected.splice(index,1);
+            }
+
+        }
+
+    }
+
+    $scope.delete = function ($index) {
+        $scope.notes.splice($index, 1);
+    }
+
+    $scope.deleteAll = function () {
+        $scope.notes = [];
+    }
+
+    $scope.selectAll = function () {
+        $scope.selected = $scope.notes;
+    }
+    $scope.deselectAll=function(){
+        $scope.selected=[];
+    }
+}]);
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports) {
 
 /**
@@ -33442,25 +33520,6 @@ $provide.value("$locale", {
 })(window);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(2);
-var todoMVC = angular.module('todoMVC', []);
-
-todoMVC.controller('mainController',['$scope',function($scope){
-    $scope.text="we are up";
-}]);
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(0);
-module.exports = angular;
-
 
 /***/ })
 /******/ ]);
